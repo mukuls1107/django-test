@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static "style.css" %}">
+  <style>
+ 
+  body{
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items:center;
+  }
+  
+  .navbar{
+    text-align:center;
+      margin:15px;
+      width:50vw;
+  }
+  form{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:8px;
+    padding:12px;
+    flex-direction:column;
+  }
+  form > input{
+    margin:6px;
+    padding:8px;
+  }
+  </style>
+</head>
+<body>
+  {% comment %} {} {% endcomment %}
+    <h1>Register Here</h1>
+    <form action="{% url 'home' %}" method="POST" >
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="Enter your name: " required>
+      <input type="email" name="email" placeholder="Enter your email: " required>
+      <input type="password" name="password" id="" placeholder="Enter your password" required>
+
+      <input type="submit" value="Submit Button">
+    </form>
+  </div>
+</body>
+</html>

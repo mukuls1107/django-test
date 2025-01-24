@@ -1,0 +1,45 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'about.css' %}">
+</head>
+<body>
+    <h1>THis is my about wala page.</h1>
+    <h2>Click here to go back to the <a href="{% url 'home' %}">home</a> page.</h2>
+    <h2>Visit the <a href="{%url 'contact' %}">contact</a> page here.</h2>
+
+    <form action="{% url 'about' %}" method="POST">
+        {% csrf_token %}
+        <label for="category"> Select Your Category: </label>
+        <label >
+            <input type="radio" name="category" value="category1">
+            Category 1
+        </label>
+        
+        <label >
+            <input type="radio" name="category" value="category2">
+            Category 2
+            
+        </label>
+        <label >
+            <input type="radio" name="category" value="category3">
+            Category 3
+            
+        </label>
+        <label for="">
+            <input type="submit" value="Submit Here!">
+        </label>
+    </form>
+
+    <div class="content">
+        {% if quotes %}
+            <h2>Random Quote </h2>
+            <p>{{quotes}}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
